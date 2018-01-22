@@ -1,4 +1,4 @@
-package com.rest.api.RestApi;
+package com.rest.api.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
