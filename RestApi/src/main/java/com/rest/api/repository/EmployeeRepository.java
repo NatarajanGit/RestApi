@@ -7,18 +7,14 @@ import com.rest.api.pojo.Employee;
 
 public class EmployeeRepository {
 
-	List<Employee> empList = null;
+	private static List<Employee> empList = null;
 
-	public List<Employee> getEmployeeDetails() {
-
-		initializeArrayList();
+	public static List<Employee> getEmployeeDetails() {
 		return empList;
 
 	}
 
-	public Employee getEmployee(int id) {
-
-		initializeArrayList();
+	public static Employee getEmployee(int id) {
 		for (Employee emp : empList) {
 			if (emp.getEmpId() == id) {
 				return emp;
@@ -27,21 +23,24 @@ public class EmployeeRepository {
 		return null;
 	}
 
-	public void initializeArrayList() {
+	public static void createEmployee(Employee emp) {
+			empList.add(emp);
+	}
+
+	static {
 
 		empList = new ArrayList<Employee>();
 
-		Employee emp = new Employee();
-		emp.setEmpId(101);
-		emp.setEmpName("Vijay");
+		Employee emp1 = new Employee();
+		emp1.setEmpId(101);
+		emp1.setEmpName("Vijay");
 
-		Employee newEmp = new Employee();
-		newEmp.setEmpId(102);
-		newEmp.setEmpName("Jagan");
+		Employee emp2 = new Employee();
+		emp2.setEmpId(102);
+		emp2.setEmpName("Jagan");
 
-		empList.add(emp);
-		empList.add(newEmp);
+		empList.add(emp1);
+		empList.add(emp2);
 
 	}
-
 }
